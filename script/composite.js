@@ -1,16 +1,8 @@
 const { Expression, Equation} = algebra;
-const {simplify} = math;
 
-
-const expr = new Expression("x").add(5);
-console.log("Ekspresi:", expr.toString());
-console.log(simplify('5(x + 2)'));
 
 function f(value){
-    const expression = document.getElementById("Ffunction").value.replace('x',`(${value})`);
-    if(parseInt(expression)<2){
-        eval()
-    }
+    const expression = document.getElementById("Ffunction").value.replaceAll('x',`(${value})`);
     return expression;
 }
 

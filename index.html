@@ -15,19 +15,17 @@
             background: white;
         }
     </style>
-
+    <!-- MathQuil Css-->
+    <link rel="stylesheet" href="style/mathquill.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
-<body class="bg-dark">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.2.0/math.js"
-        integrity="sha512-K6yeEH8HDerhMdJyfx5uSdY0YHQAu2R0KhwGQ9Jzvh0qZPUjceeV7ch0BZz9w6UY+TgKldDzsQWVN+XeJ3PSzw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<body class="bg-dark mx-0 sm:mx-10">
     <h1 class="text-2xl font-bold mt-10">
             Kalkulator Fungsi
     </h1>
     <div class="inline-block my-10 w-full mt-10">
-        <div class="grid-rows-2 w-450 m-auto">
+        <div class="grid-rows-2 lg:w-450 md:w-450 m-auto sm:w-full px-2"  style="margin-bottom: -5px;" >
             <div class="flex">
                 <div class="flex">
                     <button class="p-2 rounded-tl-md bg-light border-r-2 " id="comFunc">
@@ -38,10 +36,10 @@
                     </button>
                 </div>
             </div>
-            <section class="text-xl w-full bg-light px-3" style="margin-bottom: -5px;" id="composition">
+            <section class="text-xl w-full bg-light px-3"id="composition">
                 <div class="flex justify-between py-5">
                     <span>f(x) = </span>
-                    <input type="text" class="border-2 text-xl w-10/12 rounded-md" id="Ffunction">
+                    <span class="border-2 w-10/12 rounded-md" id="fComposite">
                 </div>
                 <div class="flex justify-between  py-3">
                     <span>g(x) = </span>
@@ -63,7 +61,7 @@
                 </div>
             </section>
         </div>
-        <section class="text-black font-bold w-450 m-auto">
+        <section class="text-black font-bold lg:w-450 md:w-450 m-auto sm:w-full px-2">
             <div class="button-row">
                 <button class="btn text-white bg-red-500" onclick="">C</button>
                 <button class="btn bg-secondary" >×</button>
@@ -107,8 +105,11 @@
             </div>
         </section>
     </div>
-    <script src="script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>  
+    <script src="script/mathquill.js"></script>
+    <script src="script/latex.js"></script>
     <script src="script/ui-uxScript.js"></script>
+    <script src="script/composite.js"></script>
 </body>
 
 </html>

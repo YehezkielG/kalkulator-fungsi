@@ -1,3 +1,14 @@
+var fCompositeField = document.getElementById('fComposite');
+var latexSpan = document.getElementById('latex');
+
+var MQ = MathQuill.getInterface(2); // for backcompat
+
+var fCompositeField = MQ.MathField(fCompositeField, {
+  spaceBehavesLikeTab: true, // configurable
+  handlers: {
+    edit: function() { }
+  }
+});
 
 const compositionBtn = document.getElementById("comFunc")
 const inverseBtn = document.getElementById("invFunc")
@@ -20,3 +31,4 @@ compositionBtn.addEventListener("click",function(){
     inverse.classList.add("hidden");
     composition.classList.remove("hidden");
 })
+
