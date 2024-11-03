@@ -46,7 +46,7 @@
                     <span>g(x) = </span>
                     <span class="w-10/12 rounded-md p-1" id="gComposite">
                 </div>
-                <div class="flex-wrap py-3">
+                <div class="flex items-center flex-wrap pt-3 pb-5">
                     <span>(f o g)(
                         <span id="inputX">x</span>
                         ) = </span> 
@@ -63,27 +63,27 @@
                 </div>
             </section>
         </div>
-        <section class="text-black font-bold lg:w-450 md:w-450 m-auto sm:w-full px-2" id="btnField">
+        <section class="text-black font-bold lg:w-450 md:w-450 m-auto sm:w-full px-2" id="">
             <div class="button-row">
-                <button class="btn text-white bg-red-500" onclick="">C</button>
-                <button class="btn bg-secondary" >×</button>
-                <button class="btn bg-secondary" >+</button>
-                <button class="btn bg-secondary" >-</button>
-                <button class="btn bg-secondary">÷</button>
+                <button class="btn text-white bg-red-500" onclick="ClearAll()">C</button>
+                <button id="btn" class="btn bg-secondary" >×</button>
+                <button id="btn" class="btn bg-secondary" >+</button>
+                <button id="btn" class="btn bg-secondary" >-</button>
+                <button id="btn"class="btn bg-secondary" >÷</button>
             </div>
             <div class="button-row">
-                <button class="btn bg-primary">7</button>
-                <button class="btn bg-primary">8</button>
-                <button class="btn bg-primary">9</button>
-                <button class="btn bg-secondary"><i>x</i><sup>□</sup></button>
-                <button class="btn bg-secondary">x</button>
+                <button onclick="" class="btn bg-primary">7</button>
+                <button onclick="" class="btn bg-primary">8</button>
+                <button onclick="" class="btn bg-primary">9</button>
+                <button onclick="" class="btn bg-secondary"><i>x</i><sup>□</sup></button>
+                <button onclick="" class="btn bg-secondary">x</button>
             </div>
             <div class="button-row">
-                <button class="btn  bg-primary">4</button>
-                <button class="btn bg-primary">5</button>
-                <button class="btn bg-primary">6</button>
-                <button class="btn bg-secondary">(□)</button>
-                <button class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
+                <button onclick="" class="btn  bg-primary">4</button>
+                <button onclick="" class="btn bg-primary">5</button>
+                <button onclick="" class="btn bg-primary">6</button>
+                <button onclick="" class="btn bg-secondary">(□)</button>
+                <button onclick="" class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
                     <div>
                     <p>□</p>
                     <p style="border:1px solid; width: 20px;"></p>
@@ -92,24 +92,25 @@
                 </button>
             </div>
             <div class="button-row">
-                <button class="btn bg-primary">1</button>
-                <button class="btn bg-primary">2</button>
-                <button class="btn bg-primary">3</button>
-                <button class="btn bg-secondary">√□</button>
-                <button class="btn bg-secondary"><sup>□</sup>√□</button>
+                <button onclick="" class="btn bg-primary">1</button>
+                <button onclick="" class="btn bg-primary">2</button>
+                <button onclick="" class="btn bg-primary">3</button>
+                <button onclick="" class="btn bg-secondary">√□</button>
+                <button onclick="" class="btn bg-secondary"><sup>□</sup>√□</button>
             </div>
             <div class="button-row">
-                <button class="btn bg-primary">0</button>
-                <button class="btn bg-secondary">.</button>
+                <button onclick="" class="btn bg-primary">0</button>
+                <button onclick="" class="btn bg-secondary">.</button>
                 <div class="btn"></div>
                 <div class="btn"></div>
-                <button class="btn bg-blue-500" onclick="calculate()">=</button>
+                <button  class="btn bg-blue-500" onclick="calculate()">=</button>
             </div>
         </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>  
     <script src="script/mathquill.js"></script>
     <script src="script/latex.js"></script>
+
     <script src="script/ui-uxScript.js"></script>
     <script src="script/composite.js"></script>
 </body>

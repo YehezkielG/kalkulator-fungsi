@@ -1,5 +1,3 @@
-
-
 const compositionBtn = document.getElementById("comFunc")
 const inverseBtn = document.getElementById("invFunc")
 
@@ -21,4 +19,3 @@ compositionBtn.addEventListener("click",function(){
     inverse.classList.add("hidden");
     composition.classList.remove("hidden");
 })
-

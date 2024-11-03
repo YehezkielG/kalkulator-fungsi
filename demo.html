@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demoo"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>  
+    <script>
+        const { Expression, Equation,sqrt} = algebra;
+        document.getElementById("demoo").innerHTML = algebra.parse("sqrt(x+3)-10") 
+    </script>
+</body>
+</html>
