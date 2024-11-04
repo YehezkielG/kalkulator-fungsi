@@ -47,10 +47,20 @@ btn.forEach((btn, index) => {
     btn.addEventListener("mousedown", (value) => {
         event.preventDefault();
         if(document.getElementById('fComposite').classList.contains('mq-focused')){
-            fCompositeField.write(btn.value);
+            if(btn.value == 'backspace'){
+                fCompositeField.keystroke('Backspace'); 
+            }
+            else{
+                fCompositeField.write(btn.value);
+            }
         }
         else if(document.getElementById('gComposite').classList.contains('mq-focused')){
-            gCompositeField.write(btn.value);
+            if(btn.value == 'backspace'){
+                gCompositeField.keystroke('Backspace'); 
+            }
+            else{
+                gCompositeField.write(btn.value);
+            }
         }
     })
 });
