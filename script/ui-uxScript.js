@@ -64,5 +64,3 @@ btn.forEach((btn, index) => {
         }
     })
 });
-
-MQ.StaticMath(document.querySelector('.xbtn'));

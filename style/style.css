@@ -1,3 +1,7 @@
+@font-face {
+    font-family: katex-math;
+    src: url(../font/KaTeX_Math-Italic.woff);
+}
 
 h1 {
     text-align: center;
@@ -15,4 +19,7 @@ h1 {
     justify-content: center; 
     margin: 5px 0;
     gap: 5px;
+}
+#composition,#inverse{
+    font-family: katex-math;
 }

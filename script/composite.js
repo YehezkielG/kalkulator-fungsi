@@ -3,7 +3,7 @@ function Tojs(str) {
     .replaceAll(/\\sqrt{([^}]+)}/g, 'sqrt($1)')             // Ubah akar
   // .replaceAll(/\\left\(/g, '(')                           
   // .replaceAll(/\\right\)/g, ')')                          
-  // .replaceAll(/\\cdot/g, '*')                             
+  .replaceAll(/\\cdot/g, '*')                             
   // .replaceAll(/\^/g, '**');  
 }
 
