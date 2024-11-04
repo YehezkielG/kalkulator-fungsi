@@ -39,18 +39,23 @@
             </div>
             <section class="text-xl w-full bg-light px-3" id="composition">
                 <div class="flex justify-between items-center py-5">
-                    <span id="anjing">f(x) = </span>
-                    <span class="w-10/12 rounded-md  p-1" id="fComposite">
+                    <span>f(x) = </span>
+                    <span class="w-10/12 rounded-md p-1" id="fComposite">
                 </div>
                 <div class="flex justify-between items-center py-3">
                     <span>g(x) = </span>
                     <span class="w-10/12 rounded-md p-1" id="gComposite">
                 </div>
-                <div class="flex items-center flex-wrap pt-3 pb-5">
-                    <span>(f o g)(
+                <div class="flex items-center flex-wrap pt-3 pb-5 relative">
+                    <button class="absolute bottom-9 -left-2  mr-1 shadow-sm float-right" id="reverseComposite">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 50 50">
+                            <path d="M 20 4 C 14.507813 4 10 8.507813 10 14 L 10 31.75 L 7.125 28.875 L 4.3125 31.71875 L 12 39.40625 L 19.6875 31.71875 L 16.875 28.90625 L 14 31.75 L 14 14 C 14 10.691406 16.691406 8 20 8 L 31 8 L 31 4 Z M 38 10.59375 L 30.28125 18.3125 L 33.125 21.125 L 36 18.25 L 36 36 C 36 39.308594 33.308594 42 30 42 L 19 42 L 19 46 L 30 46 C 35.492188 46 40 41.492188 40 36 L 40 18.25 L 42.875 21.125 L 45.6875 18.28125 Z"></path>
+                        </svg>
+                    </button>
+                    <div class="flex items-center"> <span id="compositeCount">(f o g)</span>(
                         <span id="inputX">x</span>
-                        ) = </span> 
-                        <span id="resultComposite" class="ml-2" ></span>
+                        ) = </div> 
+                        <span id="resultComposite" class="ml-2" ></span>                
                 </div>
             </section>
             <section class="text-xl sm:w-full bg-light px-3 hidden " id="inverse">
@@ -58,8 +63,8 @@
                     <span>f(x) = </span>
                     <input type="text" class="border-2 text-xl w-10/12 rounded-md">
                 </div>
-                <div class="py-5 flex">
-                    f <span style="font-size: 12px;">-1</span> (x) = <span id="demo"></span>
+                <div class="mt-5 pb-5">
+                    f <sup>-1</sup> (x) = <span id="demo"></span>
                 </div>
             </section>
         </div>
@@ -75,7 +80,6 @@
                     </div>
                 </button>
                 <button id="btn" value="backspace" class="btn flex justify-center items-center text-white bg-red-500">
-                    
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
                         <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M20.92578,8.00195c-1.94418,0 -3.81448,0.75525 -5.21289,2.10742l-9.9082,9.57617c-2.4257,2.34484 -2.4257,6.28406 0,8.62891l9.9082,9.57813c1.39801,1.35054 3.26869,2.10813 5.21289,2.10938h16.57422c3.57194,0 6.5,-2.92806 6.5,-6.5v-19c0,-3.57194 -2.92806,-6.5 -6.5,-6.5zM20.92578,11.00195h16.57422c1.95006,0 3.5,1.54994 3.5,3.5v19c0,1.95006 -1.54994,3.5 -3.5,3.5h-16.57227h-0.00195c-1.1671,-0.0013 -2.28743,-0.45657 -3.12695,-1.26758v0.00195l-9.91016,-9.57812c-1.2343,-1.19316 -1.2343,-3.12129 0,-4.31445l9.91016,-9.57812c0.83958,-0.81182 1.95913,-1.26367 3.12695,-1.26367zM34.48633,15.97852c-0.39614,0.00935 -0.77249,0.17506 -1.04687,0.46094l-5.43945,5.43945l-5.43945,-5.43945c-0.28248,-0.2909 -0.67069,-0.45506 -1.07617,-0.45508c-0.61065,0.00015 -1.16026,0.37042 -1.38978,0.93629c-0.22952,0.56587 -0.09314,1.21439 0.34486,1.63988l5.43945,5.43945l-5.43945,5.43945c-0.39185,0.37623 -0.54969,0.9349 -0.41265,1.46055c0.13704,0.52565 0.54754,0.93616 1.07319,1.07319c0.52565,0.13704 1.08432,-0.0208 1.46055,-0.41265l5.43945,-5.43945l5.43945,5.43945c0.37623,0.39185 0.9349,0.54969 1.46055,0.41265c0.52565,-0.13704 0.93616,-0.54754 1.07319,-1.07319c0.13704,-0.52565 -0.0208,-1.08432 -0.41265,-1.46055l-5.43945,-5.43945l5.43945,-5.43945c0.44646,-0.42851 0.58398,-1.08719 0.34628,-1.65854c-0.2377,-0.57135 -0.80184,-0.93811 -1.4205,-0.92349z"></path></g></g>
                     </svg>
@@ -112,7 +116,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>  
     <script src="script/mathquill.js"></script>
     <script src="script/latex.js"></script>
-
     <script src="script/ui-uxScript.js"></script>
     <script src="script/composite.js"></script>
     <script src="script/inverse.js"></script>

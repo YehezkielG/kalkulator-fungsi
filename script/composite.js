@@ -11,11 +11,19 @@ function calculate() {
   //get latex code
   let f = fCompositeField.latex();
   let g = gCompositeField.latex();
-  f = Tojs(f); g = Tojs(g)
+  // let x  = inputXfield.latex();
+  f = Tojs(f); g = Tojs(g);
+  let subtitution;
   //subtitution
-  f = f.replaceAll('x', "(" + g + ")");
+  if(Countfog){
+    subtitution = f.replaceAll('x', "(" + g + ")");
+  }else{
+    subtitution = g.replaceAll('x', "(" + f + ")");
+  }
+  // subtitution = subtitution.replaceAll('x',x);
+  
   //evaluate
-  console.log(f);
-  let evaluate = algebra.parse(f).toTex().toString();
+  console.log(subtitution);
+  let evaluate = algebra.parse(subtitution).toTex().toString();
   resultField.latex(evaluate)
 }

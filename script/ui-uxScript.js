@@ -6,6 +6,20 @@ const compositionBtn = document.getElementById("comFunc")
 const inverseBtn = document.getElementById("invFunc")
 const  composition = document.getElementById("composition");
 const  inverse = document.getElementById("inverse");
+var inputX = document.getElementById("inputX");
+
+//Change counposite 
+let Countfog = true;
+document.getElementById("reverseComposite").addEventListener("click",()=>{
+ if(Countfog){
+    document.getElementById("compositeCount").innerHTML = `(g o f)`
+    Countfog = false;
+ }
+ else{
+    document.getElementById("compositeCount").innerHTML = `(f o g)`
+    Countfog = true;
+ }
+})
 
 //change from composite fucntion to inverse function 
 inverseBtn.addEventListener("click",function(){
@@ -39,6 +53,9 @@ var gCompositeField = MQ.MathField(gCompositeField, {
     edit: function () {}
   }
 })
+// var inputXfield = MQ.MathField(inputX,{
+//     spaceBehavesLikeTab: true,Headers: {edit: function () {}} 
+// })
 
 var resultField = MQ.StaticMath(resultField)
 
