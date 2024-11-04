@@ -596,6 +596,14 @@ video {
   position: static;
 }
 
+.relative {
+  position: relative;
+}
+
+.bottom-3 {
+  bottom: 0.75rem;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -612,6 +620,10 @@ video {
 
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .ml-2 {
@@ -709,7 +721,7 @@ video {
 
 .bg-dark {
   --tw-bg-opacity: 1;
-  background-color: rgb(40 40 40 / var(--tw-bg-opacity));
+  background-color: rgb(41 41 41 / var(--tw-bg-opacity));
 }
 
 .bg-light {

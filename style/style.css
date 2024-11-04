@@ -3,11 +3,10 @@ h1 {
     text-align: center;
     color: white;
 }
-
 .btn {
     border-radius: 5px; 
     padding: 10px; 
-    font-size: 15px; 
+    font-size: 17px; 
     cursor: pointer; 
     width: calc(100% - 10px); 
 }
@@ -17,4 +16,3 @@ h1 {
     margin: 5px 0;
     gap: 5px;
 }
-

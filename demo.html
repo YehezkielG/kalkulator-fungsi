@@ -1,16 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="demoo"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>  
-    <script>
-        const { Expression, Equation,sqrt} = algebra;
-        document.getElementById("demoo").innerHTML = algebra.parse("sqrt(x+3)-10") 
-    </script>
-</body>
-</html>
+<!-- Elemen MathQuill -->
+<div id="math-field" class="mathquill-editable"></div>
+
+<!-- Tombol untuk menambahkan ekspresi -->
+<button id="btn-add">Tambah x²</button>
+
+<!-- Tambahkan MathQuill Library -->
+<script src="script/mathquill.js"></script>
+
+<script>
+  // Inisialisasi MathQuill
+  const MQ = MathQuill.getInterface(2);
+  const mathFieldElement = document.getElementById('math-field');
+  const mathField = MQ.MathField(mathFieldElement, {
+    spaceBehavesLikeTab: true,
+    handlers: {
+      edit: function () {
+        console.log("Current Expression:", mathField.latex());
+      }
+    }
+  });
+
+  // Fungsi untuk menambahkan teks ke MathQuill
+  function insertToMathField(latex) {
+    mathField.write(latex);
+    mathField.focus(); // Kembalikan fokus ke MathQuill
+  }
+
+  // Event listener pada tombol dengan mousedown
+  document.getElementById('btn-add').addEventListener('mousedown', function(event) {
+    event.preventDefault(); // Cegah kehilangan fokus
+    insertToMathField('x^2'); // Tambahkan x² ke MathQuill
+  });
+</script>

@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Fungsi</title>
-    <!-- custom css -->
-    <link rel="stylesheet" href="style/style.css">
+    <!-- MathQuil Css-->
+    <link rel="stylesheet" href="style/mathquill.css">
     <!-- tailwind css -->
     <link rel="stylesheet" href="style/output.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- googlefont -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
     <style>
         input{
             padding:3px;
             background: white;
         }
     </style>
-    <!-- MathQuil Css-->
-    <link rel="stylesheet" href="style/mathquill.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
@@ -39,7 +41,7 @@
             </div>
             <section class="text-xl w-full bg-light px-3" id="composition">
                 <div class="flex justify-between items-center py-5">
-                    <span>f(x) = </span>
+                    <span id="anjing">f(x) = </span>
                     <span class="w-10/12 rounded-md  p-1" id="fComposite">
                 </div>
                 <div class="flex justify-between items-center py-3">
@@ -65,25 +67,29 @@
         </div>
         <section class="text-black font-bold lg:w-450 md:w-450 m-auto sm:w-full px-2" id="">
             <div class="button-row">
-                <button class="btn text-white bg-red-500" onclick="ClearAll()">C</button>
-                <button id="btn" class="btn bg-secondary" >×</button>
-                <button id="btn" class="btn bg-secondary" >+</button>
-                <button id="btn" class="btn bg-secondary" >-</button>
-                <button id="btn"class="btn bg-secondary" >÷</button>
+                <button id="btn" value="\cdot" class="btn bg-secondary" >×</button>
+                <button id="btn" value="+" class="btn bg-secondary" >+</button>
+                <button id="btn" value="-" class="btn bg-secondary" >-</button>
+                <button id="btn" value="\frac{ }{ }" class="btn bg-secondary" >÷</button>
+                <button class="btn text-white bg-red-500" onclick="ClearAll()">
+                    <span class="material-symbols-outlined">
+                        backspace
+                    </span>
+                </button>
             </div>
             <div class="button-row">
-                <button onclick="" class="btn bg-primary">7</button>
-                <button onclick="" class="btn bg-primary">8</button>
-                <button onclick="" class="btn bg-primary">9</button>
-                <button onclick="" class="btn bg-secondary"><i>x</i><sup>□</sup></button>
-                <button onclick="" class="btn bg-secondary">x</button>
+                <button id="btn" value="7" class="btn bg-primary">7</button>
+                <button id="btn" value="8" class="btn bg-primary">8</button>
+                <button id="btn" value="9" class="btn bg-primary">9</button>
+                <button id="btn" value="^{2}" class="btn bg-secondary"><i>□</i><sup>2</sup></button>
+                <button id="btn" value="x" class="btn bg-secondary xbtn" style="font-family: katex-math;" >x</button>
             </div>
             <div class="button-row">
-                <button onclick="" class="btn  bg-primary">4</button>
-                <button onclick="" class="btn bg-primary">5</button>
-                <button onclick="" class="btn bg-primary">6</button>
-                <button onclick="" class="btn bg-secondary">(□)</button>
-                <button onclick="" class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
+                <button id="btn" value="4" class="btn  bg-primary">4</button>
+                <button id="btn" value="5" class="btn bg-primary">5</button>
+                <button id="btn" value="6" class="btn bg-primary">6</button>
+                <button id="btn" value="\left(\right)" class="btn bg-secondary">(□)</button>
+                <button id="btn" value="\frac{ }{ }"  class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
                     <div>
                     <p>□</p>
                     <p style="border:1px solid; width: 20px;"></p>
@@ -92,15 +98,15 @@
                 </button>
             </div>
             <div class="button-row">
-                <button onclick="" class="btn bg-primary">1</button>
-                <button onclick="" class="btn bg-primary">2</button>
-                <button onclick="" class="btn bg-primary">3</button>
-                <button onclick="" class="btn bg-secondary">√□</button>
-                <button onclick="" class="btn bg-secondary"><sup>□</sup>√□</button>
+                <button id="btn" value="1" class="btn bg-primary">1</button>
+                <button id="btn" value="2" class="btn bg-primary">2</button>
+                <button id="btn"  value="3"class="btn bg-primary">3</button>
+                <button id="btn"  value="\sqrt{ }"class="btn bg-secondary">√□</button>
+                <button id="btn" class="btn bg-secondary"><sup>□</sup>√□</button>
             </div>
             <div class="button-row">
-                <button onclick="" class="btn bg-primary">0</button>
-                <button onclick="" class="btn bg-secondary">.</button>
+                <button id="btn" value="0" class="btn bg-primary">0</button>
+                <button id="btn" value="." class="btn bg-secondary">.</button>
                 <div class="btn"></div>
                 <div class="btn"></div>
                 <button  class="btn bg-blue-500" onclick="calculate()">=</button>
@@ -113,6 +119,7 @@
 
     <script src="script/ui-uxScript.js"></script>
     <script src="script/composite.js"></script>
+    <script src="script/inverse.js"></script>
 </body>
 
 </html>
