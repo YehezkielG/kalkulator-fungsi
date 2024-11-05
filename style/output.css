@@ -604,36 +604,12 @@ video {
   position: relative;
 }
 
-.top-3 {
-  top: 0.75rem;
-}
-
-.top-4 {
-  top: 1rem;
-}
-
-.bottom-3 {
-  bottom: 0.75rem;
-}
-
-.bottom-10 {
-  bottom: 2.5rem;
+.-left-2 {
+  left: -0.5rem;
 }
 
 .bottom-9 {
   bottom: 2.25rem;
-}
-
-.left-1 {
-  left: 0.25rem;
-}
-
-.-left-1 {
-  left: -0.25rem;
-}
-
-.-left-2 {
-  left: -0.5rem;
 }
 
 .float-right {
@@ -744,10 +720,6 @@ video {
 
 .rounded-tr-md {
   border-top-right-radius: 0.375rem;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border-r-2 {

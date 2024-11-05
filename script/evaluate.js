@@ -40,7 +40,6 @@ function calculate() {
       let result = '';
       let steps = [];
 
-      // Linear function (ax + b)
       if (cleanInput.includes('+') || cleanInput.includes('-')) {
         const isSubtraction = cleanInput.includes('-');
         const parts = cleanInput.split(isSubtraction ? '-' : '+');

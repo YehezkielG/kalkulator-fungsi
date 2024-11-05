@@ -8,8 +8,7 @@ const inverseBtn = document.getElementById("invFunc")
 const  composition = document.getElementById("composition");
 const  inverse = document.getElementById("inverse");
 var inputX = document.getElementById("inputX");
-
-
+  
 //Change counposite 
 let Countfog = true;
 document.getElementById("reverseComposite").addEventListener("click",()=>{
