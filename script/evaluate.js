@@ -50,12 +50,12 @@ function calculate() {
           const b = parseFloat(isSubtraction ? `-${parts[1]}` : parts[1]);
 
           steps = [
-            `y = ${a}x ${isSubtraction ? '-' : '+'} ${Math.abs(b)}`,
-            `${a}y = x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}`,
-            `y = \\frac{x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}}{${a}}`
+            `${a}x ${isSubtraction ? '-' : '+'} ${Math.abs(b)}`,
+            `${a}x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}`,
+            `\\frac{x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}}{${a}}`
           ];
 
-          result = `y = \\frac{x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}}{${a}}`;
+          result = `\\frac{x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}}{${a}}`;
         }
       }
       // Power function (x^n)
@@ -66,9 +66,9 @@ function calculate() {
           const power = parseFloat(parts[1]);
 
           steps = [
-            `y = ${base === '1' ? '' : base}x^{${power}}`,
+            `${base === '1' ? '' : base}x^{${power}}`,
             `\\frac{y}{${base === '1' ? '1' : base}} = x^{${power}}`,
-            `y = ${base === '1' ? '' : `\\frac{1}{${base}}`}x^{\\frac{1}{${power}}}`
+            `${base === '1' ? '' : `\\frac{1}{${base}}`}x^{\\frac{1}{${power}}}`
           ];
 
           result = `${base === '1' ? '' : `\\frac{1}{${base}}`}x^{\\frac{1}{${power}}}`;
