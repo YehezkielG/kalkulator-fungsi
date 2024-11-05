@@ -1,12 +1,14 @@
 var fCompositeField = document.getElementById('fComposite');
 var gCompositeField = document.getElementById('gComposite');
-var resultField = document.getElementById("resultComposite");
+var resultField = document.getElementById("compositeResult");
 var btn = document.querySelectorAll("#btn");
+var fInverse = document.getElementById("fInverse");
 const compositionBtn = document.getElementById("comFunc")
 const inverseBtn = document.getElementById("invFunc")
 const  composition = document.getElementById("composition");
 const  inverse = document.getElementById("inverse");
 var inputX = document.getElementById("inputX");
+
 
 //Change counposite 
 let Countfog = true;
@@ -20,22 +22,22 @@ document.getElementById("reverseComposite").addEventListener("click",()=>{
     Countfog = true;
  }
 })
-
+let calculateComposite = true;
 //change from composite fucntion to inverse function 
 inverseBtn.addEventListener("click",function(){
     this.classList.remove("opacity-40");
     compositionBtn.classList.add("opacity-40");
-
     inverse.classList.remove("hidden");
     composition.classList.add("hidden");
+    calculateComposite = false;
 })
 //change from inverse function to composite funtion
 compositionBtn.addEventListener("click",function(){
     this.classList.remove("opacity-40");
     inverseBtn.classList.add("opacity-40");
-
     inverse.classList.add("hidden");
     composition.classList.remove("hidden");
+    calculateComposite =true;
 })
 
 
@@ -53,12 +55,13 @@ var gCompositeField = MQ.MathField(gCompositeField, {
     edit: function () {}
   }
 })
-// var inputXfield = MQ.MathField(inputX,{
-//     spaceBehavesLikeTab: true,Headers: {edit: function () {}} 
-// })
+var fInverse = MQ.MathField(fInverse, {
+    spaceBehavesLikeTab:true,
+    Headers:{edit : function(){}}
+})
 
-var resultField = MQ.StaticMath(resultField)
-
+var resultField = MQ.StaticMath(resultField);
+var inverseResult = MQ.StaticMath(document.getElementById("inverseResult"))
 
 btn.forEach((btn, index) => {
     btn.addEventListener("mousedown", (value) => {
@@ -77,6 +80,14 @@ btn.forEach((btn, index) => {
             }
             else{
                 gCompositeField.write(btn.value);
+            }
+        }
+        else if(document.getElementById('fInverse').classList.contains('mq-focused')){
+            if(btn.value == 'backspace'){
+                fInverse.keystroke('Backspace'); 
+            }
+            else{
+                fInverse.write(btn.value);
             }
         }
     })

@@ -16,6 +16,11 @@
             padding:3px;
             background: white;
         }
+        .mathquill-editable input {
+            pointer-events: none; /* Matikan pointer di input */
+            caret-color: transparent; /* Sembunyikan kursor */
+        }
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
@@ -33,7 +38,7 @@
                         Fungsi Komposisi
                     </button>
                     <button class="p-2 bg-light rounded-tr-md opacity-40" id="invFunc">
-                        Fungsi Inverse
+                        Fungsi Invers
                     </button>
                 </div>
             </div>
@@ -55,23 +60,23 @@
                     <div class="flex items-center"> <span id="compositeCount">(f o g)</span>(
                         <span id="inputX">x</span>
                         ) = </div> 
-                        <span id="resultComposite" class="ml-2" ></span>                
+                        <span id="compositeResult" class="ml-2" ></span>                
                 </div>
             </section>
             <section class="text-xl sm:w-full bg-light px-3 hidden " id="inverse">
                 <div class="py-5 flex justify-between">
                     <span>f(x) = </span>
-                    <input type="text" class="border-2 text-xl w-10/12 rounded-md">
+                    <span type="text" class="p-1 w-10/12  rounded-md" id="fInverse"></span>
                 </div>
                 <div class="mt-5 pb-5">
-                    f <sup>-1</sup> (x) = <span id="demo"></span>
+                    f <sup>-1</sup> (x) = <span id="inverseResult"></span>
                 </div>
             </section>
         </div>
         <section class="text-black font-bold lg:w-450 md:w-450 m-auto sm:w-full px-2" id="">
             <div class="button-row">
                 <button id="btn" value="x" class="btn bg-secondary xbtn" style="font-family: katex-math;" >x</button>
-                <button id="btn" value="^{2}" class="btn bg-secondary"><i>□</i><sup>2</sup></button>
+                <button id="btn" value="^{ }" class="btn bg-secondary"><i>□</i><sup>□</sup></button>
                 <button id="btn" value="\frac{ }{ }"  class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
                     <div>
                     <p>□</p>
@@ -117,8 +122,7 @@
     <script src="script/mathquill.js"></script>
     <script src="script/latex.js"></script>
     <script src="script/ui-uxScript.js"></script>
-    <script src="script/composite.js"></script>
-    <script src="script/inverse.js"></script>
+    <script src="script/evaluate.js"></script>
 </body>
 
 </html>
