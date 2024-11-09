@@ -27,9 +27,6 @@ function calculate() {
   }
   else {
     const input = fInverse.latex();
-    const errorDiv = document.getElementById('error');
-    const resultSection = document.getElementById('result-section');
-    const stepsContainer = document.getElementById('steps-container');
 
     try {
       // Clean the input
@@ -81,8 +78,7 @@ function calculate() {
       }
 
     } catch (err) {
-      errorDiv.textContent = 'Format fungsi tidak didukung. Gunakan format seperti "2x + 1" atau "x^2"';
-      errorDiv.style.display = 'block';
+      console.log(err);
     }
   }
   //get latex code

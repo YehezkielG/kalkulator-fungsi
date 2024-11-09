@@ -40,11 +40,11 @@
             <section class="text-xl w-full bg-light px-3" id="composition">
                 <div class="flex justify-between items-center py-5">
                     <span>f(x) = </span>
-                    <span class="w-10/12 rounded-md p-1" id="fComposite">
+                    <span class="flex items-center w-10/12 rounded-md p-1 h-9" id="fComposite">
                 </div>
                 <div class="flex justify-between items-center py-3">
                     <span>g(x) = </span>
-                    <span class="w-10/12 rounded-md p-1" id="gComposite">
+                    <span class="w-10/12 rounded-md p-1 flex items-center h-9" id="gComposite">
                 </div>
                 <div class="flex items-center flex-wrap pt-3 pb-5 relative">
                     <sup><button class="shadow-sm float-right" id="reverseComposite">
@@ -52,16 +52,17 @@
                             <path d="M 20 4 C 14.507813 4 10 8.507813 10 14 L 10 31.75 L 7.125 28.875 L 4.3125 31.71875 L 12 39.40625 L 19.6875 31.71875 L 16.875 28.90625 L 14 31.75 L 14 14 C 14 10.691406 16.691406 8 20 8 L 31 8 L 31 4 Z M 38 10.59375 L 30.28125 18.3125 L 33.125 21.125 L 36 18.25 L 36 36 C 36 39.308594 33.308594 42 30 42 L 19 42 L 19 46 L 30 46 C 35.492188 46 40 41.492188 40 36 L 40 18.25 L 42.875 21.125 L 45.6875 18.28125 Z"></path>
                         </svg>
                     </button></sup>
-                    <div class="flex items-center"> <span id="compositeCount">(f o g)</span>(
+                    <div class="flex items-center"> 
+                        <span id="compositeCount" class="items-center">(f o g)</span>(
                         <span id="inputX">x</span>
                         ) = </div> 
-                        <span id="compositeResult" class="ml-2" ></span>                
+                        <span id="compositeResult" class="h-9 ml-2 flex items-center"></span>                
                 </div>
             </section>
-            <section class="text-xl sm:w-full bg-light px-3 hidden " id="inverse">
+            <section class="text-xl sm:w-full bg-light px-3 hidden  " id="inverse">
                 <div class="py-5 flex justify-between">
                     <span>f(x) = </span>
-                    <span type="text" class="p-1 w-10/12  rounded-md" id="fInverse"></span>
+                    <span type="text" class="p-1 w-10/12  rounded-md  flex items-center h-9" id="fInverse"></span>
                 </div>
                 <div class="mt-5 pb-5">
                     f <sup>-1</sup> (x) = <span id="inverseResult"></span>
@@ -72,7 +73,7 @@
             <div class="button-row">
                 <button id="btn" value="x" class="btn bg-secondary xbtn" style="font-family: katex-math;" >x</button>
                 <button id="btn" value="^{ }" class="btn bg-secondary"><i>□</i><sup>□</sup></button>
-                <button id="btn" value="\frac{ }{ }"  class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
+                <button id="btn" value="\frac{ }{ }" class="btn flex justify-center bg-secondary"style="padding: 0 10px;">
                     <div>
                     <p>□</p>
                     <p style="border:1px solid; width: 20px;"></p>
