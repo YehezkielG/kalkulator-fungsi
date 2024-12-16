@@ -1,5 +1,6 @@
 var fCompositeField = document.getElementById('fComposite');
 var gCompositeField = document.getElementById('gComposite');
+
 var resultField = document.getElementById("compositeResult");
 var btn = document.querySelectorAll("#btn");
 var fInverse = document.getElementById("fInverse");
@@ -61,6 +62,7 @@ var fInverse = MQ.MathField(fInverse, {
 
 var resultField = MQ.StaticMath(resultField);
 var inverseResult = MQ.StaticMath(document.getElementById("inverseResult"))
+var finishingField  = MQ.StaticMath(document.getElementById("finishing"));
 
 btn.forEach((btn, index) => {
     btn.addEventListener("mousedown", (value) => {

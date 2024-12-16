@@ -1,10 +1,12 @@
+
+
 function Tojs(str) {
-  return str.replaceAll(/\\frac{([^}]+)}{([^}]+)}/g, '($1)/($2)') // Ubah pecahan
-    .replaceAll(/\\sqrt{([^}]+)}/g, 'sqrt($1)')             // Ubah akar
-    // .replaceAll(/\\left\(/g, '(')                           
-    // .replaceAll(/\\right\)/g, ')')                          
+  return str.replaceAll(/\\frac{([^}]+)}{([^}]+)}/g, '($1)/($2)')
+    .replaceAll(/\\sqrt{([^}]+)}/g, 'sqrt($1)')
+    .replaceAll(/\\left\(/g, '(')
+    .replaceAll(/\\right\)/g, ')')
     .replaceAll(/\\cdot/g, '*')
-  // .replaceAll(/\^/g, '**');  
+    .replaceAll(/\^/g, '**');
 }
 
 function calculate() {
@@ -26,46 +28,28 @@ function calculate() {
     resultField.latex(evaluate)
   }
   else {
-    const input = fInverse.latex();
-
     try {
-      // Clean the input
       let cleanInput = input.replace(/\\left|\\right/g, '')
         .replace(/\{|\}/g, '')
         .replace(/\s+/g, '');
 
       let result = '';
       let steps = [];
-
       if (cleanInput.includes('+') || cleanInput.includes('-')) {
         const isSubtraction = cleanInput.includes('-');
         const parts = cleanInput.split(isSubtraction ? '-' : '+');
-
         if (parts.length === 2) {
           const a = parseFloat(parts[0].replace('x', '')) || 1;
           const b = parseFloat(isSubtraction ? `-${parts[1]}` : parts[1]);
 
-          steps = [
-            `${a}x ${isSubtraction ? '-' : '+'} ${Math.abs(b)}`,
-            `${a}x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}`,
-            `\\frac{x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}}{${a}}`
-          ];
-
           result = `\\frac{x ${isSubtraction ? '+' : '-'} ${Math.abs(b)}}{${a}}`;
         }
       }
-      // Power function (x^n)
       else if (cleanInput.includes('^')) {
         const parts = cleanInput.split('^');
         if (parts.length === 2) {
           const base = parts[0].replace('x', '') || '1';
           const power = parseFloat(parts[1]);
-
-          steps = [
-            `${base === '1' ? '' : base}x^{${power}}`,
-            `\\frac{y}{${base === '1' ? '1' : base}} = x^{${power}}`,
-            `${base === '1' ? '' : `\\frac{1}{${base}}`}x^{\\frac{1}{${power}}}`
-          ];
 
           result = `${base === '1' ? '' : `\\frac{1}{${base}}`}x^{\\frac{1}{${power}}}`;
         }

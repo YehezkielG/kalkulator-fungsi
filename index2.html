@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator Fungsi Invers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/latex.js/0.12.4/latex.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kalkulator Fungsi Invers</h2>
+    <p>Masukkan fungsi matematika (contoh: x^2, sin(x), log(x))</p>
+    <input type="text" id="functionInput" placeholder="Masukkan fungsi">
+    <button onclick="calculateInverse()">Hitung Invers</button>
+    
+    <div id="result"></div>
+    <div id="latexResult"></div>
+
+    <script>
+        function calculateInverse() {
+            const func = document.getElementById('functionInput').value;
+            const resultDiv = document.getElementById('result');
+            const latexResultDiv = document.getElementById('latexResult');
+
+            try {
+                // Membuat fungsi simbolik
+                const expression = math.parse(func);
+                const variable = expression.name || 'x';
+
+                // Mencoba menghitung fungsi invers
+                const inverseFunc = math.derivative(expression, variable).toString();
+                
+                // Menampilkan hasil dalam teks biasa
+                resultDiv.innerHTML = `Turunan (pendekatan fungsi invers): ${inverseFunc}`;
+
+                // Render LaTeX
+                const latexExpression = math.parse(inverseFunc).toTex();
+                const latex = new latexjs.LaTeX(latexExpression);
+                latexResultDiv.innerHTML = latex.render();
+            } catch (error) {
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
