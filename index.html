@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>easyFunc</title>
+    <!-- MathQuil Css-->
+    <link rel="stylesheet" href="style/mathquill.css">
+    <!-- tailwind css -->
+    <link rel="stylesheet" href="style/output.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="iconn.png" type="image/x-icon">
+    <style>
+        input {
+            padding: 3px;
+            background: white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- google fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=help" />
+    <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
+</head>
+
+<body class="bg-dark  mx-[20%]">
+    <div class="w-full">
+        <div class="flex justify-between px-5 my-10 text-white">
+            <h1 class="text-2xl font-bold text-left flex items-center">
+                <div>
+                    <img src="iconn.png" alt="" srcset="" class="w-16 mr-4">
+                </div>
+                <div>
+                    Easy Func <br>
+                    <small class="text-sm font-normal">
+                        (kalkulator Penyelesaian Fungsi Komposisi dan Fungsi Invers)
+                    </small>
+                </div>
+            </h1>
+
+            <button id="openModalButton" class="flex items-center cursor-pointer">
+                <span class="mr-1 uderline">
+                    Panduan Pengguna
+                </span>
+                <span class="material-symbols-outlined text-[8px]">
+                    help
+                </span>
+            </button>
+        </div>
+
+        <div class="flex justify-between">
+            <div class="inline-block w-full ">
+                <div class="grid-rows-2 lg:w-450 md:w-450 m-auto sm:w-full" style="margin-bottom: -5px;">
+                    <div class="flex">
+                        <div class="flex">
+                            <button class="p-2 rounded-tl-md bg-light border-r-2 " id="comFunc">
+                                Fungsi Komposisi
+                            </button>
+                            <button class="p-2 bg-light rounded-tr-md opacity-40" id="invFunc">
+                                Fungsi Invers
+                            </button>
+                        </div>
+                    </div>
+                    <section class="text-xl w-full bg-light px-3" id="composition">
+                        <div class="flex justify-between items-center py-5">
+                            <span>f(x) = </span>
+                            <span class="flex items-center w-10/12 rounded-md p-1 h-9" id="fComposite">
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span>g(x) = </span>
+                            <span class="w-10/12 rounded-md p-1 flex items-center h-9" id="gComposite">
+                        </div>
+
+                        <div class="flex items-center flex-wrap pt-3 pb-5 relative">
+                            <sup><button class="shadow-sm float-right" id="reverseComposite">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15"
+                                        viewBox="0 0 50 50">
+                                        <path
+                                            d="M 20 4 C 14.507813 4 10 8.507813 10 14 L 10 31.75 L 7.125 28.875 L 4.3125 31.71875 L 12 39.40625 L 19.6875 31.71875 L 16.875 28.90625 L 14 31.75 L 14 14 C 14 10.691406 16.691406 8 20 8 L 31 8 L 31 4 Z M 38 10.59375 L 30.28125 18.3125 L 33.125 21.125 L 36 18.25 L 36 36 C 36 39.308594 33.308594 42 30 42 L 19 42 L 19 46 L 30 46 C 35.492188 46 40 41.492188 40 36 L 40 18.25 L 42.875 21.125 L 45.6875 18.28125 Z">
+                                        </path>
+                                    </svg>
+                                </button></sup>
+                            <div class="flex items-center">
+                                <span id="compositeCount" class="items-center">(f o g)</span>(
+                                <span id="inputX">x</span>
+                                ) =
+                            </div>
+                            <span id="compositeResult" class="h-9 ml-2 flex items-center"></span>
+                        </div>
+                    </section>
+                    <section class="text-xl sm:w-full bg-light px-3 hidden  " id="inverse">
+                        <div class="py-5 flex justify-between">
+                            <span>f(x) = </span>
+                            <span type="text" class="p-1 w-10/12  rounded-md  flex items-center h-9"
+                                id="fInverse"></span>
+                        </div>
+                        <div class="mt-5 pb-5">
+                            f <sup>-1</sup> (x) = <span id="inverseResult"></span>
+                        </div>
+                    </section>
+                </div>
+                <section class="text-black font-bold lg:w-450 md:w-450 m-auto sm:w-full " id="">
+                    <div class="button-row">
+                        <button id="btn" value="x" class="btn bg-secondary xbtn"
+                            style="font-family: katex-math;">x</button>
+                        <button id="btn" value="^{ }" class="btn bg-secondary"><i>□</i><sup>□</sup></button>
+                        <button id="btn" value="\frac{ }{ }" class="btn flex justify-center bg-secondary"
+                            style="padding: 0 10px;">
+                            <div>
+                                <p>□</p>
+                                <p style="border:1px solid; width: 20px;"></p>
+                                <p>□</p>
+                            </div>
+                        </button>
+                        <button id="btn" value="backspace"
+                            class="btn flex justify-center items-center text-white bg-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                                viewBox="0,0,256,256">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.33333,5.33333)">
+                                        <path
+                                            d="M20.92578,8.00195c-1.94418,0 -3.81448,0.75525 -5.21289,2.10742l-9.9082,9.57617c-2.4257,2.34484 -2.4257,6.28406 0,8.62891l9.9082,9.57813c1.39801,1.35054 3.26869,2.10813 5.21289,2.10938h16.57422c3.57194,0 6.5,-2.92806 6.5,-6.5v-19c0,-3.57194 -2.92806,-6.5 -6.5,-6.5zM20.92578,11.00195h16.57422c1.95006,0 3.5,1.54994 3.5,3.5v19c0,1.95006 -1.54994,3.5 -3.5,3.5h-16.57227h-0.00195c-1.1671,-0.0013 -2.28743,-0.45657 -3.12695,-1.26758v0.00195l-9.91016,-9.57812c-1.2343,-1.19316 -1.2343,-3.12129 0,-4.31445l9.91016,-9.57812c0.83958,-0.81182 1.95913,-1.26367 3.12695,-1.26367zM34.48633,15.97852c-0.39614,0.00935 -0.77249,0.17506 -1.04687,0.46094l-5.43945,5.43945l-5.43945,-5.43945c-0.28248,-0.2909 -0.67069,-0.45506 -1.07617,-0.45508c-0.61065,0.00015 -1.16026,0.37042 -1.38978,0.93629c-0.22952,0.56587 -0.09314,1.21439 0.34486,1.63988l5.43945,5.43945l-5.43945,5.43945c-0.39185,0.37623 -0.54969,0.9349 -0.41265,1.46055c0.13704,0.52565 0.54754,0.93616 1.07319,1.07319c0.52565,0.13704 1.08432,-0.0208 1.46055,-0.41265l5.43945,-5.43945l5.43945,5.43945c0.37623,0.39185 0.9349,0.54969 1.46055,0.41265c0.52565,-0.13704 0.93616,-0.54754 1.07319,-1.07319c0.13704,-0.52565 -0.0208,-1.08432 -0.41265,-1.46055l-5.43945,-5.43945l5.43945,-5.43945c0.44646,-0.42851 0.58398,-1.08719 0.34628,-1.65854c-0.2377,-0.57135 -0.80184,-0.93811 -1.4205,-0.92349z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="button-row">
+                        <button id="btn" value="7" class="btn bg-primary">7</button>
+                        <button id="btn" value="8" class="btn bg-primary">8</button>
+                        <button id="btn" value="9" class="btn bg-primary">9</button>
+                        <button id="btn" value="\cdot" class="btn bg-secondary">×</button>
+                    </div>
+                    <div class="button-row">
+                        <button id="btn" value="4" class="btn  bg-primary">4</button>
+                        <button id="btn" value="5" class="btn bg-primary">5</button>
+                        <button id="btn" value="6" class="btn bg-primary">6</button>
+                        <button id="btn" value="+" class="btn bg-secondary">+</button>
+                    </div>
+                    <div class="button-row">
+                        <button id="btn" value="1" class="btn bg-primary">1</button>
+                        <button id="btn" value="2" class="btn bg-primary">2</button>
+                        <button id="btn" value="3" class="btn bg-primary">3</button>
+                        <button id="btn" value="-" class="btn bg-secondary">-</button>
+                        <!-- <button id="btn"  value="\sqrt{ }"class="btn bg-secondary">√□</button> -->
+                        <!-- <button id="btn" class="btn bg-secondary"><sup>□</sup>√□</button> -->
+                    </div>
+                    <div class="button-row">
+                        <button id="btn" value="0" class="btn bg-primary">0</button>
+                        <button id="btn" value="." class="btn bg-secondary">.</button>
+                        <button id="btn" value="\left(\right)" class="btn bg-secondary">(□)</button>
+                        <button class="btn bg-blue-500" onclick="calculate()">=</button>
+                    </div>
+                </section>
+            </div>
+            <section class="text-white w-full border-2 border-gray-400 rounded-lg p-2 text-xl">
+                Penyelesaian :
+                <div class="block" id="finishing">
+
+                </div>
+            </section>
+
+        </div>
+
+        <dialog id="modal" class="relative p-6 bg-dark bg-opacity-80 rounded-lg shadow-lg">
+            <button id="closeModalButtonTop" class="close-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-100 hover:text-gray-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="mb-4 text-xl font-semibold text-white">
+                Panduan Pengguna
+            </h2>
+            <div class="text-gray-100">
+                <h2 class="my-2 texl-lg font-bold">
+                    kalkulator fungsi komposisi
+                </h2>
+                <ol class="list-decimal">
+                    <li>Masukan Nilai fungsi f(x)</li>
+                    <li>Masukan Nilai fungsi g(x)</li>
+                    <li>Klik tombol
+                        <button class="shadow-sm ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" x="0px" y="0px" width="15" height="15"
+                                viewBox="0 0 50 50">
+                                <path fill="white"
+                                    d="M 20 4 C 14.507813 4 10 8.507813 10 14 L 10 31.75 L 7.125 28.875 L 4.3125 31.71875 L 12 39.40625 L 19.6875 31.71875 L 16.875 28.90625 L 14 31.75 L 14 14 C 14 10.691406 16.691406 8 20 8 L 31 8 L 31 4 Z M 38 10.59375 L 30.28125 18.3125 L 33.125 21.125 L 36 18.25 L 36 36 C 36 39.308594 33.308594 42 30 42 L 19 42 L 19 46 L 30 46 C 35.492188 46 40 41.492188 40 36 L 40 18.25 L 42.875 21.125 L 45.6875 18.28125 Z">
+                                </path>
+                            </svg>
+                        </button>
+                        jika ingin mencari (g o f)(x) atau sebaliknya
+                    </li>
+                    <li>
+                        Klik tombol sama dengan
+                        <button class="p-2 px-5 text-center rounded-sm text-black bg-blue-500">=</button>
+                        untuk mendapatkan hasil komposisi yang diginginka 
+                    </li>
+                </ol>
+                <br>
+                <h2 class="my-2 texl-lg font-bold">
+                    kalkulator fungsi invers
+                </h2>
+                <ol class="list-decimal">
+                    <li>Masukkan nilai fungsi f(x)</li>
+                    <li>Klik tombol sama dengan
+                        <button class="p-2 px-5 text-center rounded-sm text-black bg-blue-500">=</button>
+                    </li>
+                </ol>
+                <br>
+                <h2 class="my-2 texl-lg font-bold">
+                    Jenis - jenis tombol pada kalkulator ini
+                </h2>
+                <ol class="list-decimal">
+                    <li class="my-2">
+                        Tombol Numerik (tombol untuk memasukkan angka)
+                        <div class="grid grid-cols-9">
+
+                            <button id="btn" value="1" class="btn bg-primary">1</button>
+                            <button id="btn" value="2" class="btn bg-primary">2</button>
+                            <button id="btn" value="3" class="btn bg-primary">3</button>
+
+                            <button id="btn" value="1" class="btn bg-primary">4</button>
+                            <button id="btn" value="2" class="btn bg-primary">5</button>
+                            <button id="btn" value="3" class="btn bg-primary">6</button>
+
+                            <button id="btn" value="1" class="btn bg-primary">7</button>
+                            <button id="btn" value="2" class="btn bg-primary">8</button>
+                            <button id="btn" value="3" class="btn bg-primary">9</button>
+                        </div>
+                    </li>
+                    <li class="my-2">Tombol Operasi Matematika
+                        <div class="">
+                            <div class="my-2 mt-0">
+                                <button value="+" class="py-2 w-20 rounded-lg mr-2  bg-secondary">+</button>  
+                                (Tambah)              
+                            </div>
+                            <div class="my-2">
+                                <button value="\cdot" class="py-2 w-20 rounded-lg mr-2  bg-secondary">×</button>
+                                (kali)
+                            </div>
+                            <div class="my-2">
+                                <button value="-" class="py-2 w-20 rounded-lg mr-2  bg-secondary">-</button>
+                                (Kurang)
+                            </div>
+                            <div class="my-2 flex items-center">
+                                <button value="\frac{ }{ }" class="py-2 w-20 rounded-lg  flex justify-center mr-2 bg-secondary">
+                                    <div>
+                                        <p>□</p>
+                                        <p style="border:1px solid; width: 20px;"></p>
+                                        <p>□</p>
+                                    </div>
+                                </button>
+                                (bagi atau per)
+                            </div>
+                        </div>
+                    </li>
+                    <li class="my-2">
+                        <div class="flex items-center">
+                            <button id="btn" value="x" class="py-2 w-20 rounded-lg mr-2 bg-secondary xbtn"
+                            style="font-family: katex-math;">x</button>
+                            menambahkan nilai x pada fungsi
+                        </div>
+                    </li>
+                    <li class="my-2">
+                        <div class="flex items-center">
+                            <button id="btn" value="^{ }" class="py-2 w-20 rounded-lg mr-2 bg-secondary"><i>□</i><sup>□</sup>
+                            </button>
+                            Menambahkan Pangkat 
+                        </div>
+                    </li>
+                    <li class="my-2">
+                        <div class="flex items-center">
+                            <button id="btn" value="^{ }" class="py-2 w-20 rounded-lg mr-2 bg-secondary">.
+                            </button>
+                            dapat membuat nilai desimal
+                        </div>
+                    </li>
+                    <li class="my-2">
+                        <div class="flex items-center">
+                            <button id="btn" value="backspace"
+                            class="py-2 w-20 flex  rounded-lg justify-center items-center text-white bg-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                                viewBox="0,0,256,256">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.33333,5.33333)">
+                                        <path
+                                            d="M20.92578,8.00195c-1.94418,0 -3.81448,0.75525 -5.21289,2.10742l-9.9082,9.57617c-2.4257,2.34484 -2.4257,6.28406 0,8.62891l9.9082,9.57813c1.39801,1.35054 3.26869,2.10813 5.21289,2.10938h16.57422c3.57194,0 6.5,-2.92806 6.5,-6.5v-19c0,-3.57194 -2.92806,-6.5 -6.5,-6.5zM20.92578,11.00195h16.57422c1.95006,0 3.5,1.54994 3.5,3.5v19c0,1.95006 -1.54994,3.5 -3.5,3.5h-16.57227h-0.00195c-1.1671,-0.0013 -2.28743,-0.45657 -3.12695,-1.26758v0.00195l-9.91016,-9.57812c-1.2343,-1.19316 -1.2343,-3.12129 0,-4.31445l9.91016,-9.57812c0.83958,-0.81182 1.95913,-1.26367 3.12695,-1.26367zM34.48633,15.97852c-0.39614,0.00935 -0.77249,0.17506 -1.04687,0.46094l-5.43945,5.43945l-5.43945,-5.43945c-0.28248,-0.2909 -0.67069,-0.45506 -1.07617,-0.45508c-0.61065,0.00015 -1.16026,0.37042 -1.38978,0.93629c-0.22952,0.56587 -0.09314,1.21439 0.34486,1.63988l5.43945,5.43945l-5.43945,5.43945c-0.39185,0.37623 -0.54969,0.9349 -0.41265,1.46055c0.13704,0.52565 0.54754,0.93616 1.07319,1.07319c0.52565,0.13704 1.08432,-0.0208 1.46055,-0.41265l5.43945,-5.43945l5.43945,5.43945c0.37623,0.39185 0.9349,0.54969 1.46055,0.41265c0.52565,-0.13704 0.93616,-0.54754 1.07319,-1.07319c0.13704,-0.52565 -0.0208,-1.08432 -0.41265,-1.46055l-5.43945,-5.43945l5.43945,-5.43945c0.44646,-0.42851 0.58398,-1.08719 0.34628,-1.65854c-0.2377,-0.57135 -0.80184,-0.93811 -1.4205,-0.92349z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                        menghapus satu karakter dari belakang
+                        </div>
+                    </li>
+                    <li class="my-2">
+                        <button class="py-2 w-20 rounded-lg bg-blue-500" onclick="calculate()">=</button>
+                        Menampilkan Hasil operasi
+                    </li>
+                </ol>
+            </div>
+
+        </dialog>
+    </div>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const openModalButton = document.getElementById("openModalButton");
+        const closeModalButtonTop = document.getElementById(
+            "closeModalButtonTop"
+        );
+        const closeModalButtonBottom = document.getElementById(
+            "closeModalButtonBottom"
+        );
+        const secondaryActionButton = document.getElementById(
+            "secondaryActionButton"
+        );
+
+        openModalButton.addEventListener("click", () => {
+            modal.classList.remove("closing");
+            modal.showModal();
+            modal.classList.add("showing");
+        });
+
+        closeModalButtonTop.addEventListener("click", closeModal);
+        closeModalButtonBottom.addEventListener("click", closeModal);
+        secondaryActionButton.addEventListener("click", () => {
+            console.log("Secondary action executed");
+        });
+
+        function closeModal() {
+            modal.classList.remove("showing");
+            modal.classList.add("closing");
+            modal.addEventListener(
+                "animationend",
+                () => {
+                    modal.close();
+                    modal.classList.remove("closing");
+                },
+                { once: true }
+            );
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/algebra.js/0.2.6/algebra.min.js"></script>
+    <script src="script/mathquill.js"></script>
+    <script src="script/latex.js"></script>
+    <script src="script/ui-uxScript.js"></script>
+    <script src="script/evaluate.js"></script>
+</body>
+
+</html>
